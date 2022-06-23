@@ -1,0 +1,23 @@
+version: '2'
+services:
+    notebook-pytorch:
+        build:
+          context: ./
+          args:
+            EXTENSION: "pytorch"
+            VERSION: ${VERSION}-py3
+        image: docker.io/eisenskrt/notebook:pytorch-${VERSION}-py3
+    notebook-tensorflow:
+        build:
+          context: ./
+          args:
+            EXTENSION: "tensorflow"
+            VERSION: ${VERSION}-tf2-py3
+        image: docker.io/eisenskrt/notebook:tensorflow2-${VERSION}-py3
+    notebook-rapids:
+        build:
+          context: ./
+          args:
+            EXTENSION: "rapidsai/rapidsai"
+            VERSION: ${VERSION}-cuda11.5-base-centos7
+        image: docker.io/eisenskrt/notebook:rapidsai-${VERSION}-py3

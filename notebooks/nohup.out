@@ -1,0 +1,51 @@
+#1 [mlaas/notebook:pytorch-22.04-py3 internal] load build definition from Dockerfile
+#1 transferring dockerfile: 204B done
+#1 DONE 0.0s
+
+#2 [mlaas/notebook:tensorflow2-22.04-py3 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 204B done
+#2 DONE 0.0s
+
+#3 [mlaas/notebook:rapids-22.04-py3 internal] load build definition from Dockerfile
+#3 transferring dockerfile: 204B done
+#3 DONE 0.0s
+
+#4 [mlaas/notebook:rapids-22.04-py3 internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [mlaas/notebook:tensorflow2-22.04-py3 internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [mlaas/notebook:pytorch-22.04-py3 internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [mlaas/notebook:pytorch-22.04-py3 internal] load metadata for nvcr.io/nvidia/pytorch:22.04-py3
+#7 ...
+
+#8 [auth] nvidia/rapidsai:pull,push token for nvcr.io
+#8 DONE 0.0s
+
+#9 [auth] nvidia/tensorflow:pull,push token for nvcr.io
+#9 DONE 0.0s
+
+#10 [auth] nvidia/pytorch:pull,push token for nvcr.io
+#10 DONE 0.0s
+
+#11 [mlaas/notebook:tensorflow2-22.04-py3 internal] load metadata for nvcr.io/nvidia/tensorflow:22.04-tf2-py3
+#11 ...
+
+#12 [mlaas/notebook:rapids-22.04-py3 internal] load metadata for nvcr.io/nvidia/rapidsai:22.04-cuda11.5-base-ubuntu20.04
+#12 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+
+#11 [mlaas/notebook:tensorflow2-22.04-py3 internal] load metadata for nvcr.io/nvidia/tensorflow:22.04-tf2-py3
+#11 CANCELED
+
+#7 [mlaas/notebook:pytorch-22.04-py3 internal] load metadata for nvcr.io/nvidia/pytorch:22.04-py3
+#7 CANCELED
+------
+ > [mlaas/notebook:rapids-22.04-py3 internal] load metadata for nvcr.io/nvidia/rapidsai:22.04-cuda11.5-base-ubuntu20.04:
+------
+failed to solve: rpc error: code = Unknown desc = failed to solve with frontend dockerfile.v0: failed to create LLB definition: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed

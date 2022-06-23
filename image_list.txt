@@ -1,0 +1,9 @@
+docker.io/eisenskrt/notebook:rapidsai-22.04-py3
+docker.io/eisenskrt/notebook:tensorflow2-22.04-py3
+docker.io/eisenskrt/notebook:pytorch-22.04-py3
+docker.io/eisenskrt/base:rapidsai-22.04-py3
+docker.io/eisenskrt/debugger:rapidsai-22.04-py3
+docker.io/eisenskrt/debugger:tensorflow2-22.04-py3
+docker.io/eisenskrt/debugger:pytorch-22.04-py3
+docker.io/eisenskrt/base:tensorflow2-22.04-py3
+docker.io/eisenskrt/base:pytorch-22.04-py3

@@ -1,0 +1,26 @@
+version: '2'
+services:
+    debugger-pytorch:
+        build:
+          context: ./
+          args:
+            EXTENSION: "pytorch"
+            VERSION: ${VERSION}-py3
+            PKG_MANAGER: "apt"
+        image: docker.io/eisenskrt/debugger:pytorch-${VERSION}-py3
+    debugger-tensorflow:
+        build:
+          context: ./
+          args:
+            EXTENSION: "tensorflow"
+            VERSION: ${VERSION}-tf2-py3
+            PKG_MANAGER: "apt"
+        image: docker.io/eisenskrt/debugger:tensorflow2-${VERSION}-py3
+    debugger-rapids:
+        build:
+          context: ./
+          args:
+            EXTENSION: "rapidsai/rapidsai"
+            VERSION: ${VERSION}-cuda11.5-base-centos7
+            PKG_MANAGER: "yum"
+        image: docker.io/eisenskrt/debugger:rapidsai-${VERSION}-py3

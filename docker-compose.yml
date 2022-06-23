@@ -1,0 +1,69 @@
+version: '2'
+services:
+    debugger-pytorch:
+        build:
+          context: ./debugger/
+          args:
+            EXTENSION: "pytorch"
+            VERSION: ${VERSION}-py3
+            PKG_MANAGER: "apt"
+        image: docker.io/eisenskrt/debugger:pytorch-${VERSION}-py3
+    debugger-tensorflow:
+        build:
+          context: ./debugger/
+          args:
+            EXTENSION: "tensorflow"
+            VERSION: ${VERSION}-tf2-py3
+            PKG_MANAGER: "apt"
+        image: docker.io/eisenskrt/debugger:tensorflow2-${VERSION}-py3
+    debugger-rapids:
+        build:
+          context: ./debugger/
+          args:
+            EXTENSION: "rapidsai/rapidsai"
+            VERSION: ${VERSION}-cuda11.5-base-centos7
+            PKG_MANAGER: "yum"
+        image: docker.io/eisenskrt/debugger:rapidsai-${VERSION}-py3
+    base-pytorch:
+        build:
+          context: ./base/
+          args:
+            EXTENSION: "pytorch"
+            VERSION: ${VERSION}-py3
+        image: docker.io/eisenskrt/base:pytorch-${VERSION}-py3
+    base-tensorflow:
+        build:
+          context: ./base/
+          args:
+            EXTENSION: "tensorflow"
+            VERSION: ${VERSION}-tf2-py3
+        image: docker.io/eisenskrt/base:tensorflow2-${VERSION}-py3
+    base-rapids:
+        build:
+          context: ./base/
+          args:
+            EXTENSION: "rapidsai/rapidsai"
+            VERSION: ${VERSION}-cuda11.5-base-centos7
+        image: docker.io/eisenskrt/base:rapidsai-${VERSION}-py3
+    notebook-pytorch:
+        build:
+          context: ./notebooks/
+          args:
+            EXTENSION: "pytorch"
+            VERSION: ${VERSION}-py3
+        image: docker.io/eisenskrt/notebook:pytorch-${VERSION}-py3
+    notebook-tensorflow:
+        build:
+          context: ./notebooks/
+          args:
+            EXTENSION: "tensorflow"
+            VERSION: ${VERSION}-tf2-py3
+        image: docker.io/eisenskrt/notebook:tensorflow2-${VERSION}-py3
+    notebook-rapids:
+        build:
+          context: ./notebooks/
+          args:
+            EXTENSION: "rapidsai/rapidsai"
+            VERSION: ${VERSION}-cuda11.5-base-centos7
+        image: docker.io/eisenskrt/notebook:rapidsai-${VERSION}-py3
+
