@@ -19,5 +19,5 @@ services:
           context: ./
           args:
             EXTENSION: "rapidsai/rapidsai"
-            VERSION: ${VERSION}-cuda11.5-base-centos7
+            VERSION: ${VERSION}-cuda11.5-runtime-ubuntu20.04-py3.9
         image: docker.io/eisenskrt/notebook:rapidsai-${VERSION}-py3

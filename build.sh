@@ -1,9 +1,13 @@
 #!/bin/bash
 
-export VERSION=22.04
+set -e
 
-podman-compose build
+export VERSION=$1
 
-echo y | podman system prune
+docker compose build
 
-cat ./image_list.txt | xargs -n1 podman push
+echo y | docker system prune
+
+cat ./image_list.txt | envsubst | xargs -n1 docker push
+
+#./save.sh $1

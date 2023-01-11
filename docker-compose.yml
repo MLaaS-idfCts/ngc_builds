@@ -6,7 +6,6 @@ services:
           args:
             EXTENSION: "pytorch"
             VERSION: ${VERSION}-py3
-            PKG_MANAGER: "apt"
         image: docker.io/eisenskrt/debugger:pytorch-${VERSION}-py3
     debugger-tensorflow:
         build:
@@ -14,15 +13,13 @@ services:
           args:
             EXTENSION: "tensorflow"
             VERSION: ${VERSION}-tf2-py3
-            PKG_MANAGER: "apt"
         image: docker.io/eisenskrt/debugger:tensorflow2-${VERSION}-py3
     debugger-rapids:
         build:
           context: ./debugger/
           args:
             EXTENSION: "rapidsai/rapidsai"
-            VERSION: ${VERSION}-cuda11.5-base-centos7
-            PKG_MANAGER: "yum"
+            VERSION: ${VERSION}-cuda11.5-runtime-ubuntu20.04-py3.9
         image: docker.io/eisenskrt/debugger:rapidsai-${VERSION}-py3
     base-pytorch:
         build:
@@ -43,7 +40,7 @@ services:
           context: ./base/
           args:
             EXTENSION: "rapidsai/rapidsai"
-            VERSION: ${VERSION}-cuda11.5-base-centos7
+            VERSION: ${VERSION}-cuda11.5-runtime-ubuntu20.04-py3.9
         image: docker.io/eisenskrt/base:rapidsai-${VERSION}-py3
     notebook-pytorch:
         build:
@@ -64,6 +61,6 @@ services:
           context: ./notebooks/
           args:
             EXTENSION: "rapidsai/rapidsai"
-            VERSION: ${VERSION}-cuda11.5-base-centos7
+            VERSION: ${VERSION}-cuda11.5-runtime-ubuntu20.04-py3.9
         image: docker.io/eisenskrt/notebook:rapidsai-${VERSION}-py3
 
