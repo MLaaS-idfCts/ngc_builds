@@ -4,10 +4,10 @@ set -e
 
 export VERSION=$1
 
-docker compose build
+podman-compose build
 
-echo y | docker system prune
+echo y | podman system prune
 
-cat ./image_list.txt | envsubst | xargs -n1 docker push
+cat ./image_list.txt | envsubst | xargs -n1 podman push
 
-#./save.sh $1
+# ./save.sh $1
