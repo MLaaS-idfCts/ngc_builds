@@ -9,3 +9,5 @@ ENV USER=roger \
 RUN useradd -l -m -s /bin/bash -N -u $UID $USER
 
 USER $USER
+
+ENV IMAGE_TYPE=base
