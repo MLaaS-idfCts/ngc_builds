@@ -135,3 +135,5 @@ HEALTHCHECK  --interval=15s --timeout=3s --start-period=5s --retries=3 \
 USER ${NB_UID}
 
 WORKDIR "${HOME}"
+
+ENV IMAGE_TYPE=notebook
