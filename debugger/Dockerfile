@@ -25,3 +25,5 @@ EXPOSE 2222
 USER $USER
 
 CMD ["/start.sh"]
+
+ENV IMAGE_TYPE=debugger
